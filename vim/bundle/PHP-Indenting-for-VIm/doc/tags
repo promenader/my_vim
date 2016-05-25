@@ -1,0 +1,11 @@
+PHP_BracesAtCodeLevel	PHPIndent.txt	/*PHP_BracesAtCodeLevel*
+PHP_autoformatcomment	PHPIndent.txt	/*PHP_autoformatcomment*
+PHP_default_indenting	PHPIndent.txt	/*PHP_default_indenting*
+PHP_outdentSLComments	PHPIndent.txt	/*PHP_outdentSLComments*
+PHP_outdentphpescape	PHPIndent.txt	/*PHP_outdentphpescape*
+PHP_removeCRwhenUnix	PHPIndent.txt	/*PHP_removeCRwhenUnix*
+PHP_vintage_case_default_indent	PHPIndent.txt	/*PHP_vintage_case_default_indent*
+ft-php-indent	PHPIndent.txt	/*ft-php-indent*
+php-comment	PHPIndent.txt	/*php-comment*
+php-indent	PHPIndent.txt	/*php-indent*
+php-indenting	PHPIndent.txt	/*php-indenting*

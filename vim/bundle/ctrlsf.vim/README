@@ -1,0 +1,14 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=5189
+
+An ack/ag powered code search and view tool, like ack.vim or `:vimgrep` but together with more context, and let you edit in-place with powerful edit mode.
+
+Project repository: https://github.com/dyng/ctrlsf.vim
+
+(Please view above github link for comprehensive demo.)
+
+Features:
+
+* Search and display result in a user friendly view with customizable context.
+* Edit mode which is incredible useful when you are doing refactoring. (Inspired by vim-ags)
+* Preview mode for fast exploring.
+* Various options for more detailed search, view and edit.
