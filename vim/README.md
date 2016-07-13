@@ -1,4 +1,4 @@
-Maple's Vim config
+Chen's Vim config
 ==================
 
 I use `vundle` to manage my plugins, which makes my `.vim` directory clean and tidy. If you are new to vim, the following two posts
@@ -89,6 +89,7 @@ sudo apt-get install vim-gtk               # Ubuntu
 * `<leader>` + `c` + `<space>` -> Toggle comment
 * `F3` -> Toggle Gundo viewer
 * `F4` -> Toggle Indent Guides
+* `<leader>` + `f`  -> Find Global
 
 ## IDE features
 
@@ -146,6 +147,7 @@ YAML         | js-yaml       | `npm install -g js-yaml`
 * `Alt` + `1~9` -> Switch between multiple buffers
 * `Ctrl` + `h/j/k/l` -> Moving between spilt windows
 * `:Ack` or `<leader>` + `a` -> Toggle Ack searching
+* `<leader>` + `f`  -> Find Global
 
 ### Screenshots
 
