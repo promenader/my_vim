@@ -14,15 +14,14 @@ syntax on
 "--------
 " color scheme
 set background=dark
-color desert "monokai solarized
+"color desert "monokai solarized
+color desert
 
 " highlight current line
 "au WinLeave * set nocursorline nocursorcolumn
 "au WinEnter * set cursorline cursorcolumn
 "set cursorline cursorcolumn
 "
-" search
-set incsearch
 "set highlight 	" conflict with highlight current line
 set ignorecase
 set smartcase
@@ -34,7 +33,7 @@ set nocompatible
 set nofoldenable                                                  " disable folding"
 set confirm                                                       " prompt when existing from an unsaved file
 set backspace=indent,eol,start                                    " More powerful backspacing
-"set t_Co=256                                                      " Explicitly tell vim that the terminal has 256 colors "
+set t_Co=256                                                      " Explicitly tell vim that the terminal has 256 colors "
 "set mouse=a                                                       " use mouse in all modes
 set report=0                                                      " always report number of lines changed                "
 set wrap                                                        " dont wrap lines
@@ -275,3 +274,53 @@ if has("gui_running")
     map <D-0> :tablast<CR>
 endif
 
+"进行版权声明的设置
+""添加或更新头
+map <F7> :call TitleDet()<cr>'s
+map <F8> :call AddFuncTitle()<cr>
+function AddFuncTitle()
+    let line = line(".")
+    call append(line,"/**")
+    call append(line +1,"* @Description: ")
+    call append(line +2,"* @param  ")
+    call append(line +3,"* @return: ")
+    call append(line +4,"**/")
+    echohl WarningMsg | echo "Successful in adding the function title." | echohl None
+endf
+
+function AddTitle()
+    call append(1,"/**")
+    call append(2,"* @author: chenhaiping - promenader@126.com")
+    call append(3,"* @Last modified: ".strftime("%Y-%m-%d %H:%M"))
+    call append(4,"* @Filename: ".expand("%:t"))
+    call append(5,"* @Description: ")
+    call append(6,"**/")
+    echohl WarningMsg | echo "Successful in adding the copyright." | echohl None
+endf
+"更新最近修改时间和文件名
+function UpdateTitle()
+    normal m'
+    execute '/# *Last modified:/s@:.*$@\=strftime(":\t%Y-%m-%d %H:%M")@'
+    normal ''
+    normal mk
+    execute '/# *Filename:/s@:.*$@\=":\t\t".expand("%:t")@'
+    execute "noh"
+    normal 'k
+    echohl WarningMsg | echo "Successful in updating the copy right." | echohl None
+endfunction
+"判断前10行代码里面，是否有Last modified这个单词，
+"如果没有的话，代表没有添加过作者信息，需要新添加；
+"如果有的话，那么只需要更新即可
+function TitleDet()
+    let n=1
+    "默认为添加
+    while n < 10
+        let line = getline(n)
+        if line =~ '^\#\s*\S*Last\smodified:\S*.*$'
+            call UpdateTitle()
+            return
+        endif
+        let n = n + 1
+    endwhile
+    call AddTitle()
+endfunction
