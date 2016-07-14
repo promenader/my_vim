@@ -14,8 +14,8 @@ syntax on
 "--------
 " color scheme
 set background=dark
-"color desert "monokai solarized
-color desert
+"color desert monokai solarized tomorrow fisa distinguished vividchalk blackboard
+color fisa
 
 " highlight current line
 "au WinLeave * set nocursorline nocursorcolumn
@@ -252,8 +252,8 @@ nnoremap ; :
 :command Qa qa
 :command QA qa
 
-" for macvim
 if has("gui_running")
+" for macvim
     set go=aAce  " remove toolbar
     "set transparency=30
     set guifont=Monaco:h13

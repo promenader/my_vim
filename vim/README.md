@@ -64,7 +64,6 @@ sudo apt-get install vim-gtk               # Ubuntu
 
 * `%` -> Jump between brackets and html/xml tags
 * `<leader>` + `w` -> Beginning of the word.
-* `<leader>` + `f` + `{char}` -> Find {char} to the right.
 
 #### Doing fixes should be as fast as possible!
 ## Fast editing
@@ -89,7 +88,6 @@ sudo apt-get install vim-gtk               # Ubuntu
 * `<leader>` + `c` + `<space>` -> Toggle comment
 * `F3` -> Toggle Gundo viewer
 * `F4` -> Toggle Indent Guides
-* `<leader>` + `f`  -> Find Global
 
 ## IDE features
 
