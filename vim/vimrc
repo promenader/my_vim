@@ -1,7 +1,8 @@
 source ~/.vim/bundles.vim
 
 " encoding dectection
-set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
+"set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
+set fileencodings=utf-8,gbk
 
 " enable filetype dectection and ft specific plugin/indent
 filetype plugin indent on
@@ -14,27 +15,27 @@ syntax on
 "--------
 " color scheme
 set background=dark
-"color desert monokai solarized tomorrow fisa distinguished vividchalk blackboard
-color fisa
+"color desert monokai solarized
+color monokai
 
 " highlight current line
-"au WinLeave * set nocursorline nocursorcolumn
-"au WinEnter * set cursorline cursorcolumn
-"set cursorline cursorcolumn
+au WinLeave * set nocursorline nocursorcolumn
+au WinEnter * set cursorline cursorcolumn
+set cursorline cursorcolumn
 "
 "set highlight 	" conflict with highlight current line
 set ignorecase
 set smartcase
 set encoding=utf-8
 " editor settings
-set history=1000
+set history=200
 set textwidth=100
 set nocompatible
 set nofoldenable                                                  " disable folding"
 set confirm                                                       " prompt when existing from an unsaved file
 set backspace=indent,eol,start                                    " More powerful backspacing
 set t_Co=256                                                      " Explicitly tell vim that the terminal has 256 colors "
-"set mouse=a                                                       " use mouse in all modes
+set mouse=h                                                       " use mouse in all modes
 set report=0                                                      " always report number of lines changed                "
 set wrap                                                        " dont wrap lines
 set scrolloff=5                                                   " 5 lines above/below cursor when scrolling
@@ -44,7 +45,7 @@ set showcmd                                                       " show typed c
 set title                                                         " show file in titlebar
 set laststatus=2                                                  " use 2 lines for the status bar
 set matchtime=2                                                   " show matching bracket for 0.2 seconds
-set matchpairs+=<:>                                               " specially for html
+"set matchpairs+=<:>                                               " specially for html
 " set relativenumber
 
 " Default Indentation
@@ -54,7 +55,7 @@ set tabstop=4       " tab width
 set softtabstop=4   " backspace
 set shiftwidth=4    " indent width
 " set textwidth=79
-" set smarttab
+set smarttab
 set expandtab       " expand tab to space
 set t_ti= t_te=
 
@@ -156,16 +157,16 @@ let NERDSpaceDelims=1
 let NERDCompactSexyComs=1
 
 " ZenCoding
-let g:user_emmet_expandabbr_key='<C-j>'
+"let g:user_emmet_expandabbr_key='<C-j>'
 
 " powerline
 "let g:Powerline_symbols = 'fancy'
 
 " NeoComplCache
 let g:neocomplcache_enable_at_startup=1
-let g:neoComplcache_disableautocomplete=1
-"let g:neocomplcache_enable_underbar_completion = 1
-"let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_disableautocomplete=1
+let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_smart_case=1
 let g:neocomplcache_min_syntax_length = 3
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
@@ -188,7 +189,7 @@ endif
 let g:neocomplcache_omni_patterns.erlang = '[a-zA-Z]\|:'
 
 " SuperTab
-" let g:SuperTabDefultCompletionType='context'
+let g:SuperTabDefultCompletionType='context'
 let g:SuperTabDefaultCompletionType = '<C-X><C-U>'
 let g:SuperTabRetainCompletionType=2
 
@@ -197,12 +198,12 @@ set wildignore+=*/tmp/*,*.so,*.o,*.a,*.obj,*.swp,*.zip,*.pyc,*.pyo,*.class,.DS_S
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 
 " Keybindings for plugin toggle
-nnoremap <F2> :set invpaste paste?<CR>
-set pastetoggle=<F2>
+"nnoremap <F2> :set invpaste paste?<CR>
+"set pastetoggle=<F2>
 nmap <F5> :TagbarToggle<cr>
 nmap <F6> :NERDTreeToggle<cr>
-nmap <F3> :GundoToggle<cr>
-nmap <F4> :IndentGuidesToggle<cr>
+"nmap <F3> :GundoToggle<cr>
+"nmap <F4> :IndentGuidesToggle<cr>
 nmap  <D-/> :
 nnoremap <leader>a :Ack
 nnoremap <leader>v V`]
@@ -230,7 +231,7 @@ autocmd BufReadPost *
       \ endif
 
 " w!! to sudo & write a file
-cmap w!! %!sudo tee >/dev/null %
+"cmap w!! %!sudo tee >/dev/null %
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -252,8 +253,8 @@ nnoremap ; :
 :command Qa qa
 :command QA qa
 
-if has("gui_running")
 " for macvim
+if has("gui_running")
     set go=aAce  " remove toolbar
     "set transparency=30
     set guifont=Monaco:h13
@@ -289,12 +290,13 @@ function AddFuncTitle()
 endf
 
 function AddTitle()
-    call append(1,"/**")
-    call append(2,"* @author: chenhaiping - promenader@126.com")
-    call append(3,"* @Last modified: ".strftime("%Y-%m-%d %H:%M"))
-    call append(4,"* @Filename: ".expand("%:t"))
-    call append(5,"* @Description: ")
-    call append(6,"**/")
+    let line = line(".")
+    call append(line,"/**")
+    call append(line+1,"* @author: chenhaiping - promenader@126.com")
+    call append(line+2,"* @Last modified: ".strftime("%Y-%m-%d %H:%M"))
+    call append(line+3,"* @Filename: ".expand("%:t"))
+    call append(line+4,"* @Description: ")
+    call append(line+5,"**/")
     echohl WarningMsg | echo "Successful in adding the copyright." | echohl None
 endf
 "更新最近修改时间和文件名
