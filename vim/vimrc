@@ -58,6 +58,7 @@ set shiftwidth=4    " indent width
 set smarttab
 set expandtab       " expand tab to space
 set t_ti= t_te=
+set hlsearch
 
 autocmd FileType php setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
 autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
