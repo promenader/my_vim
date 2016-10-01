@@ -19,9 +19,9 @@ set background=dark
 color monokai
 
 " highlight current line
-au WinLeave * set nocursorline nocursorcolumn
-au WinEnter * set cursorline cursorcolumn
-set cursorline cursorcolumn
+"au WinLeave * set nocursorline nocursorcolumn
+"au WinEnter * set cursorline cursorcolumn
+"set cursorline cursorcolumn
 "
 "set highlight 	" conflict with highlight current line
 set ignorecase
@@ -213,7 +213,7 @@ let g:ctrlsf_ackprg = 'ag'
 nnoremap <Leader>f :CtrlSF <C-R><C-W><CR>
 
 
-map <leader>k :set paste<cr>yawoerror_log(print_r("\n<esc>pa=error::chen===>>".__CLASS__."->".__FUNCTION__."<<========================>>>>> \n", true), 3, "/tmp/chp.log");<ESC>oerror_log(print_r($<esc>pa,true), 3, "/tmp/chp.log");<esc>,w:set nopaste<cr>))
+map <leader>k :set paste<cr>yawoerror_log(print_r("\n<esc>pa=error::chen===>>".__CLASS__."->".__FUNCTION__."<<========================>>>>> \n", true), 3, "/tmp/chp.log");<ESC>oerror_log(print_r($<esc>pa,true), 3, "/tmp/chp.log");<esc>:set nopaste<cr>))
 "------------------
 " Useful Functions
 "------------------
