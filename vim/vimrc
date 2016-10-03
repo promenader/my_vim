@@ -18,13 +18,15 @@ set background=dark
 "color desert monokai solarized
 color monokai
 
+"将光标十字关闭
 " highlight current line
 "au WinLeave * set nocursorline nocursorcolumn
 "au WinEnter * set cursorline cursorcolumn
 "set cursorline cursorcolumn
 "
 "set highlight 	" conflict with highlight current line
-set ignorecase
+
+set ignorecase       "搜索忽略大小写
 set smartcase
 set encoding=utf-8
 " editor settings
@@ -35,7 +37,7 @@ set nofoldenable                                                  " disable fold
 set confirm                                                       " prompt when existing from an unsaved file
 set backspace=indent,eol,start                                    " More powerful backspacing
 set t_Co=256                                                      " Explicitly tell vim that the terminal has 256 colors "
-set mouse=h                                                       " use mouse in all modes
+set mouse-=a                                                       " use mouse in all modes
 set report=0                                                      " always report number of lines changed                "
 set wrap                                                        " dont wrap lines
 set scrolloff=5                                                   " 5 lines above/below cursor when scrolling
@@ -46,7 +48,7 @@ set title                                                         " show file in
 set laststatus=2                                                  " use 2 lines for the status bar
 set matchtime=2                                                   " show matching bracket for 0.2 seconds
 "set matchpairs+=<:>                                               " specially for html
-" set relativenumber
+"set relativenumber
 
 " Default Indentation
 set autoindent
@@ -54,7 +56,7 @@ set smartindent     " indent when
 set tabstop=4       " tab width
 set softtabstop=4   " backspace
 set shiftwidth=4    " indent width
-" set textwidth=79
+set textwidth=79
 set smarttab
 set expandtab       " expand tab to space
 set t_ti= t_te=
@@ -118,6 +120,10 @@ let g:tagbar_width=30
 let g:tagbar_autofocus = 1
 let g:tagbar_sort = 0
 let g:tagbar_compact = 1
+"关闭tab页
+nnoremap <leader>x :bd <cr>
+"tab之间的切换 <esc> + 1.2.3....
+
 " tag for coffee
 if executable('coffeetags')
   let g:tagbar_type_coffee = {
@@ -201,10 +207,25 @@ let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 " Keybindings for plugin toggle
 "nnoremap <F2> :set invpaste paste?<CR>
 "set pastetoggle=<F2>
+nmap <F1> <Esc>
+" F2 行号开关，用于鼠标复制代码用
+" 为方便复制，用<F2>开启/关闭行号显示:
+function! HideNumber()
+  if(&relativenumber == &number)
+    set relativenumber! number!
+  elseif(&number)
+    set number!
+  else
+    set relativenumber!
+  endif
+  set number?
+endfunc
+nnoremap <F2> :call HideNumber()<CR>
+
+"F3打开/关闭语法高亮
+nnoremap <F3> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
 nmap <F5> :TagbarToggle<cr>
 nmap <F6> :NERDTreeToggle<cr>
-"nmap <F3> :GundoToggle<cr>
-"nmap <F4> :IndentGuidesToggle<cr>
 nmap  <D-/> :
 nnoremap <leader>a :Ack
 nnoremap <leader>v V`]
@@ -237,6 +258,10 @@ autocmd BufReadPost *
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+" 复制选中区到系统剪切板中
+vnoremap <leader>y "+y
+
 
 
 " sublime key bindings
