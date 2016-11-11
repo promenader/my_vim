@@ -229,6 +229,7 @@ nmap <F6> :NERDTreeToggle<cr>
 nmap  <D-/> :
 nnoremap <leader>a :Ack
 nnoremap <leader>v V`]
+nnoremap <leader>z zf%
 let g:ackprg = 'ag --nogroup --nocolor --column'
 let g:ctrlsf_ackprg = 'ag'
 nnoremap <Leader>f :CtrlSF <C-R><C-W><CR>
