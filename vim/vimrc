@@ -25,6 +25,10 @@ color monokai
 "set cursorline cursorcolumn
 "
 "set highlight 	" conflict with highlight current line
+au WinLeave * set nocursorline
+au WinEnter * set cursorline
+set cursorline
+
 
 set ignorecase       "搜索忽略大小写
 set smartcase
@@ -154,9 +158,9 @@ let NERDChristmasTree=0
 let NERDTreeWinSize=30
 let NERDTreeChDirMode=2
 let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
-" let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
+let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
 let NERDTreeShowBookmarks=1
-let NERDTreeWinPos = "right"
+let NERDTreeWinPos = "left"
 
 " nerdcommenter
 let NERDSpaceDelims=1
@@ -212,7 +216,8 @@ nmap <F1> <Esc>
 " 为方便复制，用<F2>开启/关闭行号显示:
 function! HideNumber()
   if(&relativenumber == &number)
-    set relativenumber! number!
+      "set relativenumber! number!
+    set number!
   elseif(&number)
     set number!
   else
@@ -220,22 +225,22 @@ function! HideNumber()
   endif
   set number?
 endfunc
-nnoremap <F2> :call HideNumber()<CR>
+nnoremap <Leader>h :call HideNumber()<CR>
 
 "F3打开/关闭语法高亮
 nnoremap <F3> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
 nmap <F5> :TagbarToggle<cr>
-nmap <F6> :NERDTreeToggle<cr>
+nmap <Leader>t :NERDTreeToggle<cr>
 nmap  <D-/> :
 nnoremap <leader>a :Ack
-nnoremap <leader>v V`]
 nnoremap <leader>z zf%
+nnoremap <leader>v V`]
 let g:ackprg = 'ag --nogroup --nocolor --column'
 let g:ctrlsf_ackprg = 'ag'
 nnoremap <Leader>f :CtrlSF <C-R><C-W><CR>
 
 
-map <leader>k :set paste<cr>yawoerror_log(print_r("\n<esc>pa=error::chen===>>".__CLASS__."->".__FUNCTION__."<<========================>>>>> \n", true), 3, "/tmp/chp.log");<ESC>oerror_log(print_r($<esc>pa,true), 3, "/tmp/chp.log");<esc>:set nopaste<cr>))
+map <leader>k :set paste<cr>yawoerror_log(print_r("\n<esc>pa=error::chen===>>".__CLASS__."->".__FUNCTION__."<<========================>>>>> \n", true), 3, "/tmp/chp.log");<ESC>oerror_log(print_r(<esc>pa,true), 3, "/tmp/chp.log");<esc>:set nopaste<cr>
 "------------------
 " Useful Functions
 "------------------
