@@ -255,6 +255,7 @@ let g:ctrlsf_ackprg = 'ag'
 nnoremap <Leader>f :CtrlSF <C-R><C-W><CR>
 nmap <Leader>p :call TitleDet()<cr>'s
 nmap <Leader>l :call AddFuncTitle()<cr>
+imap <Tab><Tab> <C-x><C-o>
 
 
 map <leader>k :set paste<cr>yawoerror_log(print_r("\n<esc>pa=error::chen===>>".__CLASS__."->".__FUNCTION__."<<========================>>>>> \n", true), 3, "/tmp/chp.log");<ESC>oerror_log(print_r($<esc>pa,true), 3, "/tmp/chp.log");<esc>:set nopaste<cr>
@@ -302,27 +303,6 @@ nnoremap ; :
 :command Qa qa
 :command QA qa
 
-" for macvim
-if has("gui_running")
-    set go=aAce  " remove toolbar
-    "set transparency=30
-    set guifont=Monaco:h13
-    set showtabline=2
-    set columns=140
-    set lines=40
-    noremap <D-M-Left> :tabprevious<cr>
-    noremap <D-M-Right> :tabnext<cr>
-    map <D-1> 1gt
-    map <D-2> 2gt
-    map <D-3> 3gt
-    map <D-4> 4gt
-    map <D-5> 5gt
-    map <D-6> 6gt
-    map <D-7> 7gt
-    map <D-8> 8gt
-    map <D-9> 9gt
-    map <D-0> :tablast<CR>
-endif
 
 "进行版权声明的设置
 ""添加或更新头
