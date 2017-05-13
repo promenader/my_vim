@@ -16,7 +16,7 @@ syntax on
 " color scheme
 set background=dark
 "color desert monokai solarized
-color monokai
+color solarized
 
 "将光标十字关闭
 " highlight current line
