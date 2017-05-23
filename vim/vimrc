@@ -255,6 +255,7 @@ let g:ctrlsf_ackprg = 'ag'
 nnoremap <Leader>f :CtrlSF <C-R><C-W><CR>
 nmap <Leader>p :call TitleDet()<cr>'s
 nmap <Leader>l :call AddFuncTitle()<cr>
+nmap <Leader>o :GoImports<cr>
 imap <C-h> <C-x><C-o>
 
 
