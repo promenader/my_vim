@@ -267,6 +267,10 @@ imap <C-h> <C-x><C-o>
 
 
 map <leader>k :set paste<cr>yawoerror_log(print_r("\n<esc>pa=error::chen===>>".__CLASS__."->".__FUNCTION__."<<========================>>>>> \n", true), 3, "/tmp/chp.log");<ESC>oerror_log(print_r($<esc>pa,true), 3, "/tmp/chp.log");<esc>:set nopaste<cr>
+
+" tabbar
+nmap <Leader>b :TbToggle<cr>
+
 "------------------
 " Useful Functions
 "------------------
