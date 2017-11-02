@@ -262,6 +262,7 @@ let g:ctrlsf_ackprg = 'ag'
 nnoremap <Leader>f :CtrlSF <C-R><C-W><CR>
 nmap <Leader>p :call TitleDet()<cr>'s
 nmap <Leader>l :call AddFuncTitle()<cr>
+nmap <Leader>, :call AddPythonTitle()<cr>
 nmap <Leader>o :GoImports<cr>
 imap <C-h> <C-x><C-o>
 
@@ -318,24 +319,32 @@ nnoremap ; :
 
 "进行版权声明的设置
 ""添加或更新头
+
+function AddPythonTitle()
+    let line = line(".")
+    call append(line -1, "#!/usr/bin/env python3")
+    call append(line, "# -*- coding: utf-8 -*-")
+    echohl WarningMsg | echo "Successful in adding the python3 title." | echohl None
+endf
+
 function AddFuncTitle()
     let line = line(".")
-    call append(line,"/**")
-    call append(line +1,"* @Description: ")
-    call append(line +2,"* @param  ")
-    call append(line +3,"* @return: ")
-    call append(line +4,"**/")
+    call append(line -1,"/**")
+    call append(line,"* @Description: ")
+    call append(line +1,"* @param  ")
+    call append(line +2,"* @return: ")
+    call append(line +3,"**/")
     echohl WarningMsg | echo "Successful in adding the function title." | echohl None
 endf
 
 function AddTitle()
     let line = line(".")
-    call append(line,"/**")
-    call append(line+1,"* @author: chenhaiping - promenader@126.com")
-    call append(line+2,"* @Last modified: ".strftime("%Y-%m-%d %H:%M"))
-    call append(line+3,"* @Filename: ".expand("%:t"))
-    call append(line+4,"* @Description: ")
-    call append(line+5,"**/")
+    call append(line -1,"/**")
+    call append(line,"* @author: chenhaiping - chenhaiping@didichuxing.com")
+    call append(line+1,"* @Last modified: ".strftime("%Y-%m-%d %H:%M"))
+    call append(line+2,"* @Filename: ".expand("%:t"))
+    call append(line+3,"* @Description:")
+    call append(line+4,"**/")
     echohl WarningMsg | echo "Successful in adding the copyright." | echohl None
 endf
 "更新最近修改时间和文件名
