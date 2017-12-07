@@ -339,7 +339,7 @@ endf
 function AddTitle()
     let line = line(".")
     call append(line -1,"/***************************************************************")
-    call append(line,"* @author: chenhaiping - chenhaiping@didichuxing.com")
+    call append(line,"* @author: promenader")
     call append(line+1,"* @Last modified: ".strftime("%Y-%m-%d %H:%M"))
     call append(line+2,"* @Filename: ".expand("%:t"))
     call append(line+3,"* @Description:")
