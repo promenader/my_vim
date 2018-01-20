@@ -8,7 +8,7 @@
 
 * 安装：
 
-```
+```sh
 git clone https://github.com/promenader/MyVimrc.git
 
 cd MyVimrc
